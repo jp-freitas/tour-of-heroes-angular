@@ -1,7 +1,12 @@
-<h1>{{ title }}</h1>
-<nav>
+<nav [ngClass]="{'collapsed': navbarCollapse === true}">
+  <span (click)="toggleNavbar()">
+    <mat-icon aria-hidden="false" aria-label="collpase">menu</mat-icon>
+  </span>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/heroes">Heroes</a>
+  <a routerLink="/logs">Logs</a>
 </nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<main>
+  <h1>{{ title }}</h1>
+  <router-outlet></router-outlet>
+</main>
