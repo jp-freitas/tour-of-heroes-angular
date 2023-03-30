@@ -1,49 +1,25 @@
 <nav [ngClass]="{'collapsed': navbarCollapse}">
   <span (click)="toggleNavbar()">
-    <mat-icon aria-hidden="false" aria-label="collpase" *ngIf="navbarCollapse; else banana">close</mat-icon>
-    <ng-template #banana>
-      <mat-icon aria-hidden="false" aria-label="collpase">menu</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="collpase" *ngIf="navbarCollapse; else collapsed">menu</mat-icon>
+    <ng-template #collapsed>
+      <mat-icon aria-hidden="false" aria-label="collpase">close</mat-icon>
     </ng-template>
   </span>
-  <a routerLink="/dashboard" *ngIf="navbarCollapse; else elseBlock">
-    <span>
-      <mat-icon aria-hidden="false" aria-label="dashboard">dashboard</mat-icon>
-    </span>
-  </a>
-  <ng-template #elseBlock>
-    <a routerLink="/dashboard">
-      <span>
-        <mat-icon aria-hidden="false" aria-label="dashboard">dashboard</mat-icon>
-      </span>
-      Dashboard
+  <div *ngFor="let data of sidebarData">
+    <a routerLink={{data.path}} *ngIf="navbarCollapse; else elseBlock" mat-raised-button #tooltip="matTooltip"
+      matTooltip={{data.title}} matTooltipPosition="right" matTooltipHideDelay="1"
+      aria-label="Just information of what this icon represents">
+      <mat-icon aria-hidden="false" aria-label="dashboard">{{ data.icon }}</mat-icon>
     </a>
-  </ng-template>
-  <a routerLink="/heroes" *ngIf="navbarCollapse; else accountTitle">
-    <span>
-      <mat-icon aria-hidden="false" aria-label="account">account_circle</mat-icon>
-    </span>
-  </a>
-  <ng-template #accountTitle>
-    <a routerLink="/heroes">
-      <span>
-        <mat-icon aria-hidden="false" aria-label="account">account_circle</mat-icon>
-      </span>
-      Heroes
-    </a>
-  </ng-template>
-  <a routerLink="/logs" *ngIf="navbarCollapse; else logsTitle">
-    <span>
-      <mat-icon aria-hidden="false" aria-label="list">list</mat-icon>
-    </span>
-  </a>
-  <ng-template #logsTitle>
-    <a routerLink="/logs">
-      <span>
-        <mat-icon aria-hidden="false" aria-label="list">list</mat-icon>
-      </span>
-      Logs
-    </a>
-  </ng-template>
+    <ng-template #elseBlock>
+      <a routerLink={{data.path}}>
+        <mat-icon aria-hidden="false" aria-label="dashboard">{{ data.icon }}</mat-icon>
+        <span class="show-title">
+          {{data.title}}
+        </span>
+      </a>
+    </ng-template>
+  </div>
 </nav>
 <main>
   <h1>{{ title }}</h1>
