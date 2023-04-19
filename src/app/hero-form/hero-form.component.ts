@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 
 @Component({
@@ -6,12 +6,20 @@ import { Hero } from '../hero';
   templateUrl: './hero-form.component.html',
   styleUrls: ['./hero-form.component.css']
 })
-export class HeroFormComponent {
+export class HeroFormComponent implements OnInit {
+  heroForm!: Hero;
   powers = ['Chemistry', 'Super Flexible', 'Super Hot', 'Weather Changer'];
-  model = new Hero(21, 'Dr. Stone', this.powers[0], 'John Peter');
-  submitted = false;
-  onSubmit() {
-    this.submitted = true;
+
+  ngOnInit(): void {
+    this.heroForm = {
+      id: 0,
+      name: '',
+      power: '',
+      alterEgo: '',
+    }
   }
 
+  onSubmit() {
+    console.log(this.heroForm)
+  }
 }
