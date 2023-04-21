@@ -1,9 +1,9 @@
-export interface Hero {
-  id: number;
-  name: string;
-  power: string;
-  alterEgo?: string
-}
+// export interface Hero {
+//   id: number;
+//   name: string;
+//   power: string;
+//   alterEgo?: string
+// }
 
 export class Hero {
   constructor(

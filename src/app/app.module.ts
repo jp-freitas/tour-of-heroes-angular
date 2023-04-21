@@ -38,7 +38,6 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatTooltipModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
