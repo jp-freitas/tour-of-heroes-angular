@@ -1,0 +1,56 @@
+form {
+  margin: auto;
+  max-width: 440px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+label {
+  margin-bottom: .5rem;
+}
+
+input {
+  width: 100%;
+  border-radius: 0.4rem;
+  border: 0.15rem solid #dedede;
+  padding: .4rem;
+  /* background: #dedede; */
+}
+
+select {
+  padding: .4rem;
+  border-radius: 0.4rem;
+  border: 0.15rem solid #dedede;
+  /* background: #dedede; */
+}
+
+option {
+  border: none;
+}
+
+button {
+  padding: .4rem;
+  width: 100%;
+  background: #fff;
+  border: #42545C solid 0.15rem;
+  color: #42545C;
+  transition: background-color .2s;
+}
+
+button:hover {
+  background: #42545C;
+  color: #fff;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 0.15rem solid #42A948;
+}
+
+.ng-invalid:not(form) {
+  border-left: 0.15rem solid #a94442;
+}

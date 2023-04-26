@@ -1,14 +1,14 @@
 <h2>Hero Form</h2>
 <form #heroForm="ngForm" (ngSubmit)="onSubmit()">
-  <div>
+  <div class="input-group">
     <label for="name">Name</label>
     <input type="text" id="name" required name="name" [(ngModel)]="hero.name">
   </div>
-  <div>
+  <div class="input-group">
     <label for="alterEgo">Alter Ego</label>
-    <input type="text" id="alterEgo" required name="alterEgo" [(ngModel)]="hero.alterEgo">
+    <input type="text" id="alterEgo" name="alterEgo" [(ngModel)]="hero.alterEgo">
   </div>
-  <div>
+  <div class="input-group">
     <label for="power">Hero Power</label>
     <select id="power" required name="power" #power="ngModel" [(ngModel)]="hero.power">
       <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
